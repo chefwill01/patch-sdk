@@ -1,0 +1,7 @@
+node_modules/
+.git/
+.cursor/
+*.log
+tsconfig.json
+bun.lock
+.gitignore

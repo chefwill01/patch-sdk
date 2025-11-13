@@ -1,0 +1,44 @@
+import { PatchClient } from "../PatchClient";
+import { api } from "../../generated/api";
+import { usePatchContext } from "../PatchClientProvider";
+
+export function sendMessage() {
+    const { sessionToken } = usePatchContext();
+
+    return async (params: {
+        threadId?: any;
+        content?: string;
+        file?: File;
+        userType?: "user" | "agent";
+    }) => {
+        let finalContent: string | any;
+        let contentType: "text" | "file";
+
+        if (params.file) {
+            const uploadUrl = await PatchClient.mutation(api.sdk.generateUploadUrl, {
+                sessionToken
+            });
+
+            const result = await fetch(uploadUrl, {
+                method: "POST",
+                headers: { "Content-Type": params.file.type },
+                body: params.file,
+            });
+
+            const { storageId } = await result.json();
+            finalContent = storageId;
+            contentType = "file";
+        } else {
+            finalContent = params.content || "";
+            contentType = "text"
+        }
+
+        return await PatchClient.mutation(api.sdk.sendMessage, {
+            sessionToken,
+            threadId: params.threadId,
+            content: finalContent,
+            contentType,
+            userType: params.userType || "user"
+        });
+    };
+}

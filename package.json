@@ -1,11 +1,33 @@
 {
-  "name": "patch-js",
-  "module": "index.ts",
-  "type": "module",
-  "devDependencies": {
-    "@types/bun": "latest"
+  "name": "patch-sdk",
+  "version": "0.1.0",
+  "description": "Patch TS Library",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./client": {
+      "types": "./dist/index.client.d.ts",
+      "import": "./dist/index.client.js",
+      "require": "./dist/index.client.js"
+    },
+    "./server": {
+      "types": "./dist/index.server.d.ts",
+      "import": "./dist/index.server.js",
+      "require": "./dist/index.server.js"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "bun run build"
   },
   "peerDependencies": {
-    "typescript": "^5"
+    "typescript": "^5.9.3",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "dependencies": {
+    "convex": "^1.27.3",
+    "rou3": "^0.7.7"
   }
 }
