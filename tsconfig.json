@@ -13,6 +13,6 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["index.client.ts", "index.server.ts", "package/**/*"],
+  "include": ["index.ts", "package/**/*"],
   "exclude": ["node_modules", "dist"]
 }

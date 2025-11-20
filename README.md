@@ -1,15 +1,19 @@
-# patch-js
+# Patch SDK
 
-To install dependencies:
+The real-time customer experience library for React. Patch gives you access to prebuilt components, hooks, and helpers to make community support a breeze.
 
-```bash
-bun install
-```
+## Why Patch SDK?
 
-To run:
+- **Framework Agnostic** - Works with Next.js, Remix, Vite, and any React setup
+- **Type Safe** - Full TypeScript support with comprehensive type definitions
+- **Real-time** - Built on Convex for instant updates and real-time messaging
+- **Flexible** - Build custom UIs with our hooks and components
+- **Simple** - Minimal setup, maximum flexibility
 
-```bash
-bun run index.ts
-```
+## Getting Started
 
-This project was created using `bun init` in bun v1.2.18. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+For installation instructions and full documentation, visit our [documentation site](http://localhost:4444/installation).
+
+## License
+
+MIT

@@ -1,8 +1,10 @@
+'use client'
+
 import { PatchClient } from "../PatchClient";
 import { api } from "../../generated/api";
 import { usePatchContext } from "../PatchClientProvider";
 
-export function sendMessage() {
+export function useSendMessage() {
     const { sessionToken } = usePatchContext();
 
     return async (params: {
